@@ -48,4 +48,4 @@ function configure(type = "cli", strategy) {
   strategy.apply(config(type))
 }
 
-// configure();
+module.exports = configure
