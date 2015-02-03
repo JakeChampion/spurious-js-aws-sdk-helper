@@ -2,7 +2,7 @@ let AWS = require("aws-sdk");
 
 class Strategy {
   constructor(set_all = false) {
-    this.mapping = {};
+    this.mapping = Object.create(null);
     if (set_all) {
       this.dynamo()
       this.sqs()
