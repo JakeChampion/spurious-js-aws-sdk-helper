@@ -13,15 +13,15 @@ function port_config() {
 function docker_config() {
   return {
     "spurious-dynamo": [{
-      Host: process.env["DYNAMODB.SPURIOS.LOCALHOST_NAME"].split("/").pop(),
+      Host: process.env["DYNAMODB.SPURIOUS.LOCALHOST_NAME"].split("/").pop(),
       HostPort: url.parse(process.env["DYNAMODB.SPURIOUS.LOCALHOST_PORT"]).port
     }],
     "spurious-sqs": [{
-      Host: process.env["SQS.SPURIOS.LOCALHOST_NAME"].split("/").pop(),
+      Host: process.env["SQS.SPURIOUS.LOCALHOST_NAME"].split("/").pop(),
       HostPort: url.parse(process.env["SQS.SPURIOUS.LOCALHOST_PORT"]).port
     }],
     "spurious-s3": [{
-      Host: process.env["S3.SPURIOS.LOCALHOST_NAME"].split("/").pop(),
+      Host: process.env["S3.SPURIOUS.LOCALHOST_NAME"].split("/").pop(),
       HostPort: url.parse(process.env["S3.SPURIOUS.LOCALHOST_PORT"]).port
     }]
   };
@@ -46,4 +46,4 @@ function configure(_x, strategy) {
   strategy.apply(config(type));
 }
 
-// configure();
+module.exports = configure;
