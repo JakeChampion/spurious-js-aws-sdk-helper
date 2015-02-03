@@ -10,53 +10,31 @@ class Strategy {
     }
   }
 
-  dynamo(port = true, ip = true) {
+  dynamo() {
     this.mapping['spurious-dynamo'] = {
-      port: port,
-      ip: ip,
-      identifier: 'dynamo_db'
+      identifier: 'dynamodb'
     }
   }
 
-  sqs(port = true, ip = true) {
+  sqs() {
     this.mapping['spurious-sqs'] = {
-      port: port,
-      ip: ip,
       identifier: 'sqs'
     }
   }
 
-  s3(port = true, ip = true) {
+  s3() {
     this.mapping['spurious-s3'] = {
-      port: port,
-      ip: ip,
       identifier: 's3'
     }
   }
 
   apply(config) {
-    // console.log(JSON.parse(config))
-    // config = JSON.parse(config)
-    Object.keys(this.mapping).forEach((key, idx, arr) => {
-      // console.log(key)
+    for (let key in this.mapping) {
       let ports = config[key];
-      // console.log(ports);
-      // console.log(this.mapping)
-      if (this.mapping[key]['port'] != null) {
-        let a = {};
-        a[`${this.mapping[key].identifier}_port`] = ports[0]['HostPort'];
-        // console.log(a)
-        new AWS.Config(a)
+      AWS.config[this.mapping[key].identifier] = {
+        endpoint: ports[0]['Host'] + ":" + ports[0]["HostPort"]
       }
-      if (this.mapping[key]['ip'] != null) {
-        let a = {};
-        a[`${this.mapping[key].identifier}_endpoint`] = ports[0]['Host'];
-        // console.log(a)
-        new AWS.Config(a)
-        // AWS.config({`${mappings.identifier}_endpoint`: ports[0]['Host']})
-      }
-    });
-    // console.log(AWS.config)
+    }
   }
 }
 
