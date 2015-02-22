@@ -1,6 +1,6 @@
-var exec = require('exec-sync')
-var url = require('url')
-var Strategy = require('./strategy')
+const exec = require('exec-sync')
+const url = require('url')
+const Strategy = require('./strategy')
 
 function port_config () {
   let config = 'spurious ports --json'
