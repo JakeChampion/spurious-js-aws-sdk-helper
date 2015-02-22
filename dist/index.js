@@ -29,19 +29,14 @@ function docker_config() {
 
 function config(type) {
   switch (type) {
-    case "cli":
-      return port_config();
-      break;
     case "docker":
       return docker_config();
-      break;
     default:
-    // throw err?
+      return port_config();
   }
 }
 
-function configure(_x, strategy) {
-  var type = arguments[0] === undefined ? "cli" : arguments[0];
+function configure(type, strategy) {
   strategy = strategy || new Strategy(true);
   strategy.apply(config(type));
 }
