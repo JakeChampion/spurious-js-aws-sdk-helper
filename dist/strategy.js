@@ -9,6 +9,7 @@ var AWS = require("aws-sdk");
 var Strategy = (function () {
   function Strategy() {
     var set_all = arguments[0] === undefined ? false : arguments[0];
+
     _classCallCheck(this, Strategy);
 
     this.mapping = Object.create(null);

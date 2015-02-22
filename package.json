@@ -4,7 +4,10 @@
   "description": "Helper module for configuring the JS AWS SDK with spurious details",
   "main": "dist/index.js",
   "scripts": {
+    "build": "babel src --out-dir dist",
+    "lint": "standard",
     "test": "standard"
+
   },
   "author": "Jake Champion <me@jakechampion.name> (http://www.jakechampion.name/)",
   "license": "MIT",
@@ -22,8 +25,7 @@
     "exec-sync": "^0.1.6"
   },
   "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-6to5": "^3.0.0",
+    "babel": "^4.4.5",
     "standard": "^2.3.1"
   },
   "standard": {
