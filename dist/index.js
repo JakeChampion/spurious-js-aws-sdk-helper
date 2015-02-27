@@ -5,9 +5,11 @@ var url = require("url");
 var Strategy = require("./strategy");
 
 function port_config() {
-  var config = "spurious ports --json";
-  return JSON.parse(exec(config)) //err handling?
-  ;
+  var ports = exec("spurious ports --json");
+  if (ports == "[error] Spurious services haven't been started, please run 'spurious start'") {
+    throw new Error(ports);
+  }
+  return JSON.parse(ports);
 }
 
 function docker_config() {
