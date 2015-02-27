@@ -1,5 +1,5 @@
 {
-  "name": "spurious-js-aws-sdk-helper",
+  "name": "spurious-aws-sdk-helper",
   "version": "1.0.0",
   "description": "Helper module for configuring the JS AWS SDK with spurious details",
   "main": "dist/index.js",

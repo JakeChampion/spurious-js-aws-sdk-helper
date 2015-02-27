@@ -3,7 +3,7 @@ A helper module for configuring the js `aws-sdk` to talk to the [spurious](https
 ## Installation
 
 ```
-$ npm install --save-dev spurious-js-aws-sdk-helper
+$ npm install --save-dev spurious-aws-sdk-helper
 ```
 
 ## Usage
