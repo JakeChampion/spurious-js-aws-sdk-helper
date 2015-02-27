@@ -9,12 +9,22 @@
     "test": "standard"
 
   },
-  "author": "Jake Champion <me@jakechampion.name> (http://www.jakechampion.name/)",
+  "author": {
+    "name": "Jake Champion",
+    "email": "me@jakechampion.name",
+    "url": "http://www.jakechampion.name/"
+  },
+  "engines": {
+    "node": "<0.12"
+  },
+  files: [
+    "dist"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JakeChampion/spurious-js-aws-sdk-helper/issues"
+    "url": "https://github.com/spurious-io/js-aws-sdk-helper/issues"
   },
-  "homepage": "https://github.com/JakeChampion/spurious-js-aws-sdk-helper",
+  "homepage": "https://github.com/spurious-io/js-aws-sdk-helper",
   "keywords": [
     "spurious",
     "aws-sdk",
