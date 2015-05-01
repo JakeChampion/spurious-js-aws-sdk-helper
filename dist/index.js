@@ -1,11 +1,26 @@
 "use strict";
 
-var exec = require("exec-sync");
 var url = require("url");
 var Strategy = require("./strategy");
 
+function get_ports() {
+  //  Use execSync if it exist (Node 0.12 and later) or exec-sync
+  var execSync = require("child_process").execSync || require("exec-sync");
+  var ports = execSync("spurious ports --json");
+  if (typeof ports === "string") {
+    return ports;
+  }
+
+  var Buffer = require("buffer").Buffer;
+  if (Buffer.isBuffer(ports)) {
+    return ports.toString();
+  }
+
+  return "[error] Spurious service returned an unsupported result: " + ports;
+}
+
 function port_config() {
-  var ports = exec("spurious ports --json");
+  var ports = get_ports();
   if (ports == "[error] Spurious services haven't been started, please run 'spurious start'") {
     throw new Error(ports);
   }
