@@ -14,7 +14,7 @@ function get_ports() {
     return ports.toString();
   }
   
-  return "[error] Spurious service returned an unsupported result: " + ports;
+  throw new Error(ports);
 }
 
 function port_config () {
