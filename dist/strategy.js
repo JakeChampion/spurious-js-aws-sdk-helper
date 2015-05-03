@@ -1,6 +1,6 @@
 "use strict";
 
-var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -20,27 +20,21 @@ var Strategy = (function () {
     }
   }
 
-  _prototypeProperties(Strategy, null, {
+  _createClass(Strategy, {
     dynamo: {
       value: function dynamo() {
         this.mapping["spurious-dynamo"] = "dynamodb";
-      },
-      writable: true,
-      configurable: true
+      }
     },
     sqs: {
       value: function sqs() {
         this.mapping["spurious-sqs"] = "sqs";
-      },
-      writable: true,
-      configurable: true
+      }
     },
     s3: {
       value: function s3() {
         this.mapping["spurious-s3"] = "s3";
-      },
-      writable: true,
-      configurable: true
+      }
     },
     apply: {
       value: function apply(config) {
@@ -50,9 +44,7 @@ var Strategy = (function () {
             endpoint: ports[0].Host + ":" + ports[0].HostPort
           };
         }
-      },
-      writable: true,
-      configurable: true
+      }
     }
   });
 

@@ -14,9 +14,6 @@
     "email": "me@jakechampion.name",
     "url": "http://www.jakechampion.name/"
   },
-  "engines": {
-    "node": "<0.12"
-  },
   "files": [
     "dist"
   ],
@@ -31,7 +28,9 @@
     "AWS"
   ],
   "dependencies": {
-    "aws-sdk": "^2.1.8",
+    "aws-sdk": "^2.1.8"
+  },
+  "optionalDependencies": {
     "exec-sync": "^0.1.6"
   },
   "devDependencies": {
