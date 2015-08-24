@@ -1,15 +1,15 @@
 const url = require('url')
 const Strategy = require('./strategy')
+const execSync = require('child_process').execSync || require('exec-sync')
+const Buffer = require('buffer').Buffer
 
 function get_ports () {
   //  Use execSync if it exist (Node 0.12 and later) or exec-sync
-  const execSync = require('child_process').execSync || require('exec-sync')
   const ports = execSync('spurious ports --json')
   if (typeof ports === 'string') {
     return ports
   }
 
-  const Buffer = require('buffer').Buffer
   if (Buffer.isBuffer(ports)) {
     return ports.toString()
   }
